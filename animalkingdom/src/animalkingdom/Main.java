@@ -50,12 +50,10 @@ public class Main {
         myList.add(catfish);
         myList.add(perch);
 
-        System.out.println(myList.toString());
-
         System.out.println("\n*** List all the animals in descending order by year named ***");
-       	
-        // myList.sort((a) -> a.getYear());
-        // myList.forEach((a) -> System.out.println(a));
+       	myList.sort((a1, a2) -> (a2.getYear() - a1.getYear()));
+        // myList.forEach((a) -> System.out.print(a.toString()));
+        System.out.println(myList.toString());
 
 
 	}
