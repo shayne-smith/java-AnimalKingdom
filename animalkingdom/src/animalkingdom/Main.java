@@ -52,9 +52,19 @@ public class Main {
 
         System.out.println("\n*** List all the animals in descending order by year named ***");
        	myList.sort((a1, a2) -> (a2.getYear() - a1.getYear()));
-        // myList.forEach((a) -> System.out.print(a.toString()));
-        System.out.println(myList.toString());
+        System.out.println(myList.toString() + "\n");
 
+        System.out.println("\n*** List all the animals alphabetically ***");
+       	myList.sort((a1, a2) -> (a1.getName().compareToIgnoreCase(a2.getName())));
+        System.out.println(myList.toString() + "\n");
+
+        System.out.println("\n*** List all the animals order by how they move ***");
+       	myList.sort((a1, a2) -> (a1.move().compareToIgnoreCase(a2.move())));
+        System.out.println(myList.toString() + "\n");
+
+        // System.out.println("\n*** List only those animals that breath with lungs ***");
+       	// myList.sort((a1, a2) -> (a1.move().compareToIgnoreCase(a2.move())));
+        // System.out.println(myList.toString() + "\n");
 
 	}
 }
