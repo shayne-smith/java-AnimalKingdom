@@ -5,6 +5,19 @@ import java.util.*;
 public class Main {
 	private static List<AbstractAnimal> filteredList = new ArrayList<>();
 
+	private static void filterAnimals(List<AbstractAnimal> animals, CheckAnimal tester, boolean printit) {
+		filteredList.clear();
+
+		for (AbstractAnimal a : animals) {
+			if (tester.test(a)) {
+				if (printit) {
+					System.out.println(a.getName() + " " + a.reproduce() + " " + a.move() + " " + a.breath() + " " + a.getYear());
+				}
+				filteredList.add(a);
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Animal Kingdom!!");
 		System.out.println("\n*** MVP ***");
@@ -62,9 +75,18 @@ public class Main {
        	myList.sort((a1, a2) -> (a1.move().compareToIgnoreCase(a2.move())));
         System.out.println(myList.toString() + "\n");
 
-        // System.out.println("\n*** List only those animals that breath with lungs ***");
-       	// myList.sort((a1, a2) -> (a1.move().compareToIgnoreCase(a2.move())));
-        // System.out.println(myList.toString() + "\n");
+        System.out.println("\n*** List only those animals that breath with lungs ***");
+       	filterAnimals(myList, a -> (a.breath().compareToIgnoreCase("lungs") == 0), true);
+        
+       	System.out.println("\n*** List only those animals that breath with lungs and were named in 1758 ***");
+       	filterAnimals(myList, a -> (a.breath().compareToIgnoreCase("lungs") == 0) && (a.getYear() == 1758), true);
 
+       	System.out.println("\n*** List only those animals that lay eggs and breath with lungs ***");
+       	filterAnimals(myList, a -> (a.breath().compareToIgnoreCase("lungs") == 0) && (a.reproduce().compareToIgnoreCase("eggs") == 0), true);
+
+       	System.out.println("\n*** List alphabetically only those animals that were named in 1758 ***");
+       	filterAnimals(myList, a -> a.getYear() == 1758, false);
+       	filteredList.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+       	filteredList.forEach((a) -> System.out.println(a.getName() + " " + a.reproduce() + " " + a.move() + " " + a.breath() + " " + a.getYear()));
 	}
 }
