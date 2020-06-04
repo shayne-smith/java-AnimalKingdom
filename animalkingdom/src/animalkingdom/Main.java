@@ -8,9 +8,8 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Animal Kingdom!!");
 		System.out.println("\n*** MVP ***");
-		System.out.println("\n*** List all the animals in descending order by year named ***");
 		
-
+		// Mammals
 		Mammals panda = new Mammals("Panda", 1869);
 		Mammals zebra = new Mammals("Zebra", 1778);
 		Mammals koala = new Mammals("Koala", 1816);
@@ -19,12 +18,14 @@ public class Main {
 		Mammals raccoon = new Mammals("Raccoon", 1758);
 		Mammals bigfoot = new Mammals("Bigfoot", 2021);
 
+		// Birds
 		Birds pigeon = new Birds("Pigeon", 1837);
 		Birds peacock = new Birds("Peacock", 1821);
 		Birds toucan = new Birds("Toucan", 1758);
 		Birds parrot = new Birds("Parrot", 1824);
 		Birds swan = new Birds("Swan", 1758);
 
+		// Fish
 		Fish salmon = new Fish("Salmon", 1758);
 		Fish catfish = new Fish("Catfish", 1817);
 		Fish perch = new Fish("Perch", 1758);
@@ -38,19 +39,24 @@ public class Main {
         myList.add(armadillo);
         myList.add(raccoon);
         myList.add(bigfoot);
+
         myList.add(pigeon);
         myList.add(peacock);
         myList.add(toucan);
         myList.add(parrot);
         myList.add(swan);
+
         myList.add(salmon);
         myList.add(catfish);
         myList.add(perch);
 
+        System.out.println(myList.toString());
+
+        System.out.println("\n*** List all the animals in descending order by year named ***");
+       	
+        // myList.sort((a) -> a.getYear());
+        // myList.forEach((a) -> System.out.println(a));
 
 
-
-
-        
 	}
 }

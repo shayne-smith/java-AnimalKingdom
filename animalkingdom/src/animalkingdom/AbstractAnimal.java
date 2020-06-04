@@ -18,6 +18,8 @@ abstract class AbstractAnimal {
 	abstract String move();
 	abstract String breath();
 	abstract String reproduce();
+	abstract String getName();
+	abstract int getYear();
 
 	void eat() {
 		food--;
